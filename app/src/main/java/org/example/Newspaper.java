@@ -9,11 +9,11 @@ public class Newspaper extends Publication {
         this.releaseNumber = releaseNumber;
     }
 
-    public int getIssueNumber() {
+    public int getReleaseNumber() {
         return releaseNumber;
     }
 
-    public void setIssueNumber(int releaseNumber) {
+    public void setReleaseNumber(int releaseNumber) {
         this.releaseNumber = releaseNumber;
     }
 }

@@ -1,4 +1,6 @@
 package org.example;
+
+@GenerateLibrary()
 public class Publication {
     @Validation(notEmpty = true)
     private String author;
@@ -32,7 +34,12 @@ public class Publication {
         return year;
     }
 
-    public void setYearPublished(int year) throws NoSuchFieldException {
+    public void setYearPublished(int year) {
         this.year = year;
+    }
+
+    @Override
+    public String toString(){
+        return "Author: " + author + "; Title: " + title + "; Year: " + year;
     }
 }
