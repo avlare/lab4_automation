@@ -1,7 +1,9 @@
 package org.example;
 public class Publication {
+    @Validation(notEmpty = true)
     private String author;
     private String title;
+    @Validation(min = 1500, max = 2024)
     private int year;
 
     public Publication(String author, String title, int year) {
@@ -30,7 +32,15 @@ public class Publication {
         return year;
     }
 
-    public void setYearPublished(int year) {
+    public void setYearPublished(int year) throws NoSuchFieldException {
+        Validation validationAnnotation = Publication.class.getDeclaredField("year").getAnnotation(Validation.class);
+        if (validationAnnotation != null) {
+            int min = validationAnnotation.min();
+            int max = validationAnnotation.max();
+            if (year < min || year > max) {
+                throw new IllegalArgumentException("Invalid year. Year must be between " + min + " and " + max);
+            }
+        }
         this.year = year;
     }
 }

@@ -1,6 +1,7 @@
 package org.example;
 
 public class Newspaper extends Publication {
+
     private int releaseNumber;
 
     public Newspaper(String author, String title, int year, int releaseNumber) {
