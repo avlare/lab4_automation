@@ -2,7 +2,9 @@ package org.example;
 
 import java.lang.annotation.*;
 
-@Retention(RetentionPolicy.RUNTIME)
+// task 2.
+//The logic should provide for the use at compilation.
+@Retention(RetentionPolicy.CLASS)
 @Target(ElementType.METHOD)
 public @interface Review {
     String reviewer();
